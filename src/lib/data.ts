@@ -16,7 +16,7 @@ export const profile = {
   phone: "+91 8178740796",
   // TODO: replace the two links below with your real profile URLs
   linkedin: "https://www.linkedin.com/in/aditya-raj",
-  github: "https://github.com/aditya-raj",
+  github: "https://github.com/adityaraj61522",
   resumeUrl: "/Aditya_Raj_Resume.pdf",
 };
 
@@ -236,4 +236,4 @@ export const navLinks = [
 //  inbox you want notified) and paste it below, or set NEXT_PUBLIC_WEB3FORMS_KEY.
 // ---------------------------------------------------------------------------
 export const WEB3FORMS_ACCESS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_WEB3FORMS_ACCESS_KEY";
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "1fe3684e-7f63-4eb1-b4a7-6a8e0f8ccab1";

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUp, Download, Mail } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { navLinks, profile } from "@/lib/data";
@@ -9,8 +10,14 @@ export default function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
             <a href="#home" className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-accent-1 to-accent-2 font-bold text-white">
-                AR
+              <span className="relative h-9 w-9 overflow-hidden rounded-xl ring-1 ring-white/15">
+                <Image
+                  src="/profile.jpg"
+                  alt={profile.name}
+                  fill
+                  sizes="36px"
+                  className="object-cover"
+                />
               </span>
               <span className="font-semibold text-white">{profile.name}</span>
             </a>

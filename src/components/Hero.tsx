@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Download, Mail, ArrowUpRight } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
@@ -97,7 +98,7 @@ export default function Hero() {
           <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-accent-1/30 via-accent-2/20 to-accent-3/20 blur-3xl" />
 
           <div className="card relative flex h-full flex-col items-center justify-center gap-6 rounded-[2rem] p-8">
-            {/* Rotating dashed ring + orb */}
+            {/* Rotating dashed ring + photo */}
             <div className="relative grid place-items-center">
               <motion.div
                 aria-hidden
@@ -105,8 +106,18 @@ export default function Hero() {
                 transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
                 className="absolute h-56 w-56 rounded-full border border-dashed border-white/15"
               />
-              <div className="float-slow grid h-40 w-40 place-items-center rounded-full bg-gradient-to-br from-accent-1 via-accent-2 to-accent-3 text-5xl font-bold text-white shadow-2xl shadow-indigo-500/40">
-                AR
+              <div className="float-slow relative rounded-full bg-gradient-to-br from-accent-1 via-accent-2 to-accent-3 p-[3px] shadow-2xl shadow-indigo-500/40">
+                <div className="relative h-44 w-44 overflow-hidden rounded-full bg-[#0a0b12]">
+                  <Image
+                    src="/profile.jpg"
+                    alt={profile.name}
+                    fill
+                    sizes="176px"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-t from-accent-2/25 to-transparent" />
+                </div>
               </div>
             </div>
 

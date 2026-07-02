@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Download, Menu, X } from "lucide-react";
 import { navLinks, profile } from "@/lib/data";
@@ -25,8 +26,14 @@ export default function Navbar() {
     >
       <nav className="section flex h-[70px] items-center justify-between">
         <a href="#home" className="group flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-accent-1 to-accent-2 font-bold text-white shadow-lg shadow-indigo-500/30">
-            AR
+          <span className="relative h-9 w-9 overflow-hidden rounded-xl shadow-lg shadow-indigo-500/30 ring-1 ring-white/15">
+            <Image
+              src="/profile.jpg"
+              alt={profile.name}
+              fill
+              sizes="36px"
+              className="object-cover"
+            />
           </span>
           <span className="text-sm font-semibold tracking-wide text-white/90 transition group-hover:text-white">
             {profile.name}

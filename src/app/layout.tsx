@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     "Backend Engineer",
   ],
   authors: [{ name: profile.name }],
+  icons: {
+    icon: "/profile.jpg",
+    apple: "/profile.jpg",
+  },
   openGraph: {
     title: `${profile.name} — ${profile.role}`,
     description: profile.tagline,
