@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aditya Raj — Portfolio
 
-## Getting Started
+A high-gloss, animated personal portfolio built with **Next.js 16**, **Tailwind CSS v4**, and **Framer Motion**. Dark glassmorphism theme, scroll-reveal animations, a downloadable résumé, and a contact form that emails you directly.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build && npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Before you go live — 3 things to personalize
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All content lives in one file: [`src/lib/data.ts`](src/lib/data.ts).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Contact form → get emailed on every message (required)
 
-## Deploy on Vercel
+The form uses [Web3Forms](https://web3forms.com) (free, no backend).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Go to **https://web3forms.com**, enter the email address where you want to receive messages, and you'll get an **Access Key** in your inbox.
+2. Add it either way:
+   - **Recommended:** create a file `.env.local` in the project root:
+     ```
+     NEXT_PUBLIC_WEB3FORMS_KEY=your-access-key-here
+     ```
+   - **Or** paste it directly into `WEB3FORMS_ACCESS_KEY` at the bottom of `src/lib/data.ts`.
+3. Restart `npm run dev`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Until a key is set, the form shows a friendly "not configured yet" message instead of sending.
+
+### 2. Your links (recommended)
+
+In `src/lib/data.ts`, update the `profile` object:
+
+- `linkedin` — your LinkedIn URL (currently a placeholder)
+- `github` — your GitHub URL (currently a placeholder)
+
+And in the `projects` array, replace the `github: "#"` / `demo: "#"` placeholders with your real repo and live-demo URLs.
+
+### 3. Your résumé PDF
+
+The download button serves `public/Aditya_Raj_Resume.pdf`. To update it, replace that file (keep the same name), or change `profile.resumeUrl` if you rename it.
+
+---
+
+## Deploy (free) on Vercel
+
+1. Push this folder to a GitHub repo.
+2. Import it at **https://vercel.com/new**.
+3. Add the environment variable `NEXT_PUBLIC_WEB3FORMS_KEY` in the Vercel project settings.
+4. Deploy. Every push auto-deploys.
+
+---
+
+## Project structure
+
+```
+src/
+  app/
+    layout.tsx        # metadata, fonts
+    page.tsx          # assembles all sections
+    globals.css       # design tokens + glossy theme utilities
+  components/         # Navbar, Hero, Stats, About, Skills, Experience, Projects, Contact, Footer
+  lib/
+    data.ts           # ← ALL your content lives here
+    motion.ts         # shared easing
+public/
+  Aditya_Raj_Resume.pdf
+```
